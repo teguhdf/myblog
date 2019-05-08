@@ -21,13 +21,17 @@
             <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav">
                 &nbsp;
-            <li><a href="<?php echo e(route('posts.index')); ?>">Blog</a></li>
+                
+                <li><a href="<?php echo e(route('posts.index')); ?>">Blog</a></li>
                 <li><a href="<?php echo e(route('about')); ?>">About</a></li>
                 <li><a href="<?php echo e(route('contact')); ?>">Contact</a></li>
+            
             </ul>
-            <form class="navbar-form navbar-left" action="" method="post" >
+            <form class="navbar-form navbar-left" action="<?php echo e(route('search')); ?>" method="post" >
+                <?php echo e(csrf_field()); ?>
+
               <div class="form-group" class="">
-                <input type="text" name="" value="" class="form-control" placeholder="Search..">
+                <input type="text" name="search" class="form-control" placeholder="Search..">
                 <button type="submit" class="btn btn-default" name="button">Submit</button>
               </div>
             </form>
@@ -45,11 +49,15 @@
                         </a>
 
                         <ul class="dropdown-menu">
+                            <?php if(auth()->check() && auth()->user()->hasRole('admin')): ?>
                             <li><a href="<?php echo e(route('posts.create')); ?>">Create New Post</a></li>
                             <li class="divider"></li>
                             <li><a href="<?php echo e(route('category.create')); ?>">Create New Category</a></li>
                             <li class="divider"></li>
                             <li><a href="<?php echo e(route('tags.create')); ?>">Create New Tag</a></li>
+                            <?php else: ?>
+                            <li><a href="<?php echo e(route('posts.create')); ?>">Create New Post</a></li>
+                            <?php endif; ?>
                         </ul>
                     </li>
                     <li class="dropdown">

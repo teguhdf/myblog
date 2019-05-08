@@ -12,6 +12,8 @@
 */
 
 Route::get('/', function () {
+
+
   $posts = App\Post::all();
   $posts2 = App\Post::orderBy('id', 'desc')->paginate(2);
   $categories = App\Category::paginate(4);
@@ -31,3 +33,5 @@ Route::resource('posts', 'PostController');
 Route::resource('category', 'CategoryController');
 
 Route::resource('tags', 'TagController');
+
+Route::post('search', 'SearchController@search')->name('search');
