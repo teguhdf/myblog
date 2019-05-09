@@ -86,7 +86,7 @@
                         <div class="form-group">
                             <h4>Apa anda yakin akan menghapus kategori {{$item->name}} ?</h4>
                         </div>
-                        <button type="submit" class="btn btn-primary">Hapus</button>    
+                        <button type="submit" class="btn btn-danger">Hapus</button>    
                     </form>
                 </div>
             </div>

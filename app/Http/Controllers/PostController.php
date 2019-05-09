@@ -20,8 +20,12 @@ class PostController extends Controller
    */
   public function index()
   {
-    $posts = post::all();
-    return view('blog.index')->withPosts($posts);
+    $posts = post::orderBy('id', 'desc')->paginate(3);;
+    $categories = Category::all();
+    // dd($categories);
+    // die;
+    $tags = Tag::all();
+    return view('blog.index', ['categories' => $categories, 'tags' => $tags])->withPosts($posts);
   }
 
   /**

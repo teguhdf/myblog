@@ -12,7 +12,7 @@
                             </div> 
                             <div class="col-md-8">
                                 <div class="detail">
-                                    <h3 class="handle"><a href="posts/<?php echo e($post->slug); ?>"><?php echo e($post->title); ?></a></h3>
+                                    <h3 class="handle"><a href="posts/<?php echo e($post->id); ?>"><?php echo e($post->title); ?></a></h3>
                                 </div>
                                 <div class="post-meta">
                                     <div>
@@ -43,6 +43,12 @@
         <?php echo $__env->make('includes.sidebar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
        
     </div>
+    <!-- FOOTER -->
+    <div class="text-center">
+        <?php echo e($posts->links()); ?>
+
+ </div>
+    <!-- END FOOTER -->
 </div>
 
 <?php $__env->stopSection(); ?>

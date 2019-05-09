@@ -57,7 +57,7 @@
             </div>
 
                   <div id="grid_post" class="row list-group">
-                        @foreach($posts as $post)
+                        @foreach($posts2 as $post)
                          <div class="item  col-xs-4 col-lg-4">
                             <div class="thumbnail as">
                                <img class="group list-group-image" src="{{asset('images/'.$post->image)}}" alt="" />
@@ -66,7 +66,7 @@
                                     <h4 class="group inner list-group-item-heading"><a href="{{url('posts/'.$post->id)}}">{{str_limit($post->title, 20)}}</a></h4>
                                          <small>{{date('j F Y, h:ia', strtotime($post->created_at))}}</small> | by <a href="#">Admin</a>
                                      </div>
-                                    <p class="group inner list-group-item-text">{{str_limit($post->content, 50) }}</p>
+                                    <p class="group inner list-group-item-text">{!!str_limit($post->content, 50) !!}</p>
                                     <div class="row"></div>
                                 </div>
                             </div>
@@ -77,12 +77,15 @@
 
               @include('includes.sidebar')
             </div><!-- end row -->
+            <div class="text-center">
+                {{$posts2->links()}}
+         </div>
         </div>
     </section>
         <!-- FOOTER -->
-     <div class="text-center">
-            {!!$posts2->links()!!}
-     </div>
+     {{-- <div class="text-center">
+            {{$posts2->links()}}
+     </div> --}}
         <!-- END FOOTER -->
 </div><!-- end con fluid -->
 @endsection

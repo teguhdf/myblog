@@ -56,7 +56,7 @@
             </div>
 
                   <div id="grid_post" class="row list-group">
-                        <?php $__currentLoopData = $posts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $post): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <?php $__currentLoopData = $posts2; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $post): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                          <div class="item  col-xs-4 col-lg-4">
                             <div class="thumbnail as">
                                <img class="group list-group-image" src="<?php echo e(asset('images/'.$post->image)); ?>" alt="" />
@@ -65,7 +65,7 @@
                                     <h4 class="group inner list-group-item-heading"><a href="<?php echo e(url('posts/'.$post->id)); ?>"><?php echo e(str_limit($post->title, 20)); ?></a></h4>
                                          <small><?php echo e(date('j F Y, h:ia', strtotime($post->created_at))); ?></small> | by <a href="#">Admin</a>
                                      </div>
-                                    <p class="group inner list-group-item-text"><?php echo e(str_limit($post->content, 50)); ?></p>
+                                    <p class="group inner list-group-item-text"><?php echo str_limit($post->content, 50); ?></p>
                                     <div class="row"></div>
                                 </div>
                             </div>
@@ -76,13 +76,14 @@
 
               <?php echo $__env->make('includes.sidebar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
             </div><!-- end row -->
+            <div class="text-center">
+                <?php echo e($posts2->links()); ?>
+
+         </div>
         </div>
     </section>
         <!-- FOOTER -->
-     <div class="text-center">
-            <?php echo $posts2->links(); ?>
-
-     </div>
+     
         <!-- END FOOTER -->
 </div><!-- end con fluid -->
 <?php $__env->stopSection(); ?>

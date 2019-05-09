@@ -40,7 +40,7 @@
                             <td>{{$no++}}</td>
                             <td>{{$tag->name}}</td>
                             <td>{{date('j F Y', strtotime($tag->created_at))}}</td>
-                            <td><a href="#{{$tag->id}}" data-toggle="modal"><i class="fa fa-edit"></i></a></td>
+                            <td><a href="#modalEdit" data-toggle="modal"><i class="fa fa-edit"></i></a></td>
                             <td><a href="#modalHapus" data-toggle="modal"><i class="fa fa-trash"></i></a></td>
                         </tr>
 
@@ -51,7 +51,7 @@
         </div>
     </div>
     {{-- modal Edit--}}
-    <div class="modal fade" id="{{$tag->id}}" >
+    <div class="modal fade" id="modalEdit" >
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -86,7 +86,7 @@
                         <div class="form-group">
                             <h4>Apa anda yakin akan menghapus Tag {{$tag->name}} ?</h4>
                         </div><br>
-                        <button type="submit" class="btn btn-primary">Hapus</button>    
+                        <button type="submit" class="btn btn-danger">Hapus</button>    
                     </form>
                 </div>
             </div>

@@ -39,7 +39,7 @@
                             <td><?php echo e($no++); ?></td>
                             <td><?php echo e($tag->name); ?></td>
                             <td><?php echo e(date('j F Y', strtotime($tag->created_at))); ?></td>
-                            <td><a href="#<?php echo e($tag->id); ?>" data-toggle="modal"><i class="fa fa-edit"></i></a></td>
+                            <td><a href="#modalEdit" data-toggle="modal"><i class="fa fa-edit"></i></a></td>
                             <td><a href="#modalHapus" data-toggle="modal"><i class="fa fa-trash"></i></a></td>
                         </tr>
 
@@ -50,7 +50,7 @@
         </div>
     </div>
     
-    <div class="modal fade" id="<?php echo e($tag->id); ?>" >
+    <div class="modal fade" id="modalEdit" >
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -89,7 +89,7 @@
                         <div class="form-group">
                             <h4>Apa anda yakin akan menghapus Tag <?php echo e($tag->name); ?> ?</h4>
                         </div><br>
-                        <button type="submit" class="btn btn-primary">Hapus</button>    
+                        <button type="submit" class="btn btn-danger">Hapus</button>    
                     </form>
                 </div>
             </div>

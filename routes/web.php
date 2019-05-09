@@ -13,12 +13,10 @@
 
 Route::get('/', function () {
 
-
-  $posts = App\Post::all();
-  $posts2 = App\Post::orderBy('id', 'desc')->paginate(2);
+  $posts2 = App\Post::orderBy('id', 'desc')->paginate(3);
   $categories = App\Category::paginate(4);
   $tags = App\Tag::paginate(4);
-  return view('welcome')->withPosts($posts)->withCategories($categories)->withTags($tags)->withPosts2($posts2);
+  return view('welcome')->withCategories($categories)->withTags($tags)->withPosts2($posts2);
 });
 
 Auth::routes();
