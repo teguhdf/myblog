@@ -14,7 +14,7 @@
                             </div> 
                             <div class="col-md-8">
                                 <div class="detail">
-                                    <h3 class="handle"><a href="posts/{{$post->id}}">{{$post->title}}</a></h3>
+                                    <h3 class="handle"><a href="posts/{{$post->slug}}">{{$post->title}}</a></h3>
                                 </div>
                                 <div class="post-meta">
                                     <div>

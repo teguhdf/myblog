@@ -14,8 +14,8 @@
 Route::get('/', function () {
 
   $posts2 = App\Post::orderBy('id', 'desc')->paginate(3);
-  $categories = App\Category::paginate(4);
-  $tags = App\Tag::paginate(4);
+  $categories = App\Category::all();
+  $tags = App\Tag::all();
   return view('welcome')->withCategories($categories)->withTags($tags)->withPosts2($posts2);
 });
 

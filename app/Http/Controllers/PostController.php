@@ -81,12 +81,11 @@ class PostController extends Controller
    * @param  int  $id
    * @return \Illuminate\Http\Response
    */
-  public function show($id)
+  public function show($slug)
   {
-    $categories = Category::paginate(4);
-    $tags = Tag::paginate(4);
-    $posts = Post::where('id', $id)->first();
-
+    $categories = Category::all();
+    $tags = Tag::all();
+    $posts = Post::where('slug', $slug)->first();
 
     return view('blog.show')->withPosts($posts)->withTags($tags)->withCategories($categories);
   }

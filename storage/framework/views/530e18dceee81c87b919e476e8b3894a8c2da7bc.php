@@ -62,7 +62,7 @@
                                <img class="group list-group-image" src="<?php echo e(asset('images/'.$post->image)); ?>" alt="" />
                                 <div class="caption">
                                     <div class="c_hr">
-                                    <h4 class="group inner list-group-item-heading"><a href="<?php echo e(url('posts/'.$post->id)); ?>"><?php echo e(str_limit($post->title, 20)); ?></a></h4>
+                                    <h4 class="group inner list-group-item-heading"><a href="<?php echo e(url('posts/'.$post->slug)); ?>"><?php echo e(str_limit($post->title, 50)); ?></a></h4>
                                          <small><?php echo e(date('j F Y, h:ia', strtotime($post->created_at))); ?></small> | by <a href="#">Admin</a>
                                      </div>
                                     <p class="group inner list-group-item-text"><?php echo str_limit($post->content, 50); ?></p>
